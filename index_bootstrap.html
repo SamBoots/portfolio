@@ -11,10 +11,11 @@
       <div class="container">
         <h1>Sam Boots</h1>
         <nav class="mt-3">
-          <ul class="list-inline mb-0">
-            <li class="list-inline-item"><a href="#about" class="text-white text-decoration-none">About</a></li>
-            <li class="list-inline-item"><a href="#projects" class="text-white text-decoration-none">Projects</a></li>
-          </ul>
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="#about" class="text-white text-decoration-none">About</a></li>
+                <li class="list-inline-item"><a href="#Skills" class="text-white text-decoration-none">Skills</a></li>
+                <li class="list-inline-item"><a href="#projects" class="text-white text-decoration-none">Projects</a></li>
+            </ul>
         </nav>
       </div>
     </header>
@@ -54,10 +55,10 @@
               <img src="assets/imgs/logo/perforce.png" width="60" height="60">
               <img src="assets/imgs/logo/VS.svg" width="60" height="60">
 
-              <p class="lead mb-1">My specialized knowledge are in these fields:</p>
+              <p class="mb-1">My specialized knowledge are in these fields:</p>
               <ul>
                   <li class="mb-1">Modern Graphic API's: Vulkan, DirectX12</li>
-                  <li class="mb-1">Low-level memory management and tooling</li>
+                  <li class="mb-1">Low-level memory management and it's debug tooling</li>
                   <li class="mb-1">Cross-platform engine development</li>
                   <li class="mb-1">Game tooling</li>
               </ul>
@@ -65,39 +66,85 @@
               <section id="projects">
                   <h2 class="mb-3">Projects</h2>
                   <div class="row">
-                      <div class="col-md-4 mb-4">
+                      <div class="col-md-6 mb-6">
                           <div class="card">
-                              <img src="assets/imgs/GudenuffEngineSetsuko.jpg" class="card-img-top" alt="Project 1">
+                              <img src="assets/imgs/DXXRaytracer.png" class="card-img-top" alt="Project 1">
+                              <div class="card-body">
+                                  <h5 class="card-title">DXX-Raytracer</h5>
+                                  <p class="card-text">A year long project dedicated on raytracing the 1995 classic Descent. Developing a skillset required to maintain and extend an old codebase while working with 6 other programmers.</p>
+                                  <b class="card-text">Skills learned and improved</b>
+                                  <ul>
+                                      <li class="mb-1">Being a programmer lead</li>
+                                      <li class="mb-1">Pull requests submission and reviews</li>
+                                      <li class="mb-1">Extending and maintaining builds using Cmake</li>
+                                      <li class="mb-1">Reading, understanding and extending old codebases</li>
+                                      <li class="mb-1">C programming language</li>
+                                      <li class="mb-1">Github: Team-wide version control</li>
+                                  </ul>
+                                  <a href="https://github.com/BredaUniversityGames/DXX-Raytracer" class="btn btn-primary">View repository</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6 mb-6">
+                          <div class="card">
+                              <img src="assets/imgs/GudenuffEngineSetsuko.jpg" class="card-img-top" alt="Project 2">
                               <div class="card-body">
                                   <h5 class="card-title">Gudenuff Engine - Setsuko</h5>
-                                  <p class="card-text">Skills learned and improved</p>
+                                  <p class="card-text">A year long project dedicated on raytracing the 1995 classic Descent. Developing a skillset required to maintain and extend an old codebase while working with 6 other programmers.</p>
+                                  <b class="card-text">Skills learned and improved</b>
                                   <ul>
                                       <li class="mb-1">Being a programmer lead</li>
                                       <li class="mb-1">Reviewing code before submission</li>
-                                      <li class="mb-1">Playstation 4 Development</li>
+                                      <li class="mb-1">Playstation 4 Development for game release</li>
                                       <li class="mb-1">Engine Architecture development</li>
                                       <li class="mb-1">C++ programming language</li>
                                       <li class="mb-1">Perforce: Team-wide version control</li>
                                   </ul>
-                                  <p class="card-text">Example Text</p>
-                                  <a href="#" class="btn btn-primary">View Project</a>
+                                  <a href="https://buas.itch.io/gudenuff-drumsofharmony" class="btn btn-primary">View Itch.io page</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-4 mb-4">
+                          <div class="card">
+                              <img src="assets/imgs/BBFramework.png" class="card-img-top" alt="Project 3">
+                              <div class="card-body">
+                                  <h5 class="card-title">BBFramework</h5>
+                                  <p class="card-text">A low-level SDL replacement library used in my own projects. </p>
+                                  <p class="card-text">It's unique in that it's very explicit in how you manage memory for basic data structures. </p>
+                                  <b class="card-text">Skills learned and improved</b>
+                                  <ul>
+                                      <li class="mb-1">Low-level memory management</li>
+                                      <li class="mb-1">Learning and implementing different allocator strategies</li>
+                                      <li class="mb-1">Learning and implementing data structures such as hashmaps, slotmaps and memory pools</li>
+                                      <li class="mb-1">C++ special features</li>
+                                      <li class="mb-1">x86 Assembly SIMD operations</li>
+                                      <li class="mb-1">C++ programming language and it's modern features</li>
+                                  </ul>
+                                  <a href="https://github.com/SamBoots/memory_studies" class="btn btn-primary">View repository</a>
                               </div>
                           </div>
                       </div>
                       <div class="col-md-4 mb-4">
                           <div class="card">
-                              <img src="assets/imgs/techdungeon.png" class="card-img-top" alt="Project 2">
+                              <img src="assets/imgs/.png" class="card-img-top" alt="Project 3">
                               <div class="card-body">
-                                  <h5 class="card-title">RLEngine - Tech Dungeon</h5>
-                                  <p class="card-text">Skills learned and improved</p>
+                                  <h5 class="card-title">BBFramework - CrossRenderer</h5>
+                                  <p class="card-text">A low-level SDL replacement library used in my own projects. </p>
+                                  <p class="card-text">It's unique in that it's very explicit in how you manage memory for basic data structures. </p>
+                                  <b class="card-text">Skills learned and improved</b>
                                   <ul>
-                                      <li class="mb-1">Vulkan graphics API</li>
+                                      <li class="mb-1">What works & doesn't work on my custom BBFramework library</li>
+                                      <li class="mb-1">DirectX12 API & Vulkan Graphics API</li>
+                                      <li class="mb-1">Bindless Descriptor & Modern Vulkan feature usages</li>
+                                      <li class="mb-1">Cross-platform development</li>
+                                      <li class="mb-1">Cmake build tool</li>
+                                      <li class="mb-1">Shared Library(.dll) management</li>
                                       <li class="mb-1">Engine Architecture development</li>
                                       <li class="mb-1">C++ programming language</li>
-                                      <li class="mb-1">Perforce: Team-wide version control</li>
                                   </ul>
-                                  <p class="card-text">Example Text</p>
-                                  <a href="#" class="btn btn-primary">View Project</a>
+                                  <a href="https://github.com/SamBoots/CrossRenderer" class="btn btn-primary">View repository</a>
                               </div>
                           </div>
                       </div>
@@ -105,13 +152,20 @@
                           <div class="card">
                               <img src="assets/imgs/techdungeon.png" class="card-img-top" alt="Project 3">
                               <div class="card-body">
-                                  <h5 class="card-title">Project 3</h5>
-                                  <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                  <h5 class="card-title">RLEngine - Tech Dungeon</h5>
+                                  <p class="card-text">A 8 week project working on a custom game engine from scratch, a roguelike game with a immediate mode 2d/3d vulkan graphics backend.</p>
+                                  <b class="card-text">Skills learned and improved</b>
+                                  <ul>
+                                      <li class="mb-1">Vulkan graphics API</li>
+                                      <li class="mb-1">Engine Architecture development</li>
+                                      <li class="mb-1">C++ programming language</li>
+                                      <li class="mb-1">Perforce: Team-wide version control</li>
+                                  </ul>
                                   <a href="#" class="btn btn-primary">View Project</a>
                               </div>
                           </div>
                       </div>
                   </div>
-              </section>
+</section>
 </div></main></body></html>
     
