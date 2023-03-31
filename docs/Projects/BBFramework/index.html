@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BBFramework by Sam Boots</title>
+	<meta name="keywords" content="SamBoots,Directx12,Vulkan,Programmer,C,C++,Games,Graphics,Engine,Lead,Memory Management,Github,perforce,allocators,HLSL,Windows,Linux,Crossplatform">
+	<meta name="author" content="Sam Boots">
+	<meta name="description" content="Sam Boots portfolio website">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+  <body>
+    <header class="bg-dark text-white py-3">
+      <div class="container">
+        <h1>BBFramework</h1>
+        <nav class="mt-3">
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="#about" class="text-white text-decoration-none">Intro</a></li>
+				<li class="list-inline-item"><a href="#Skills" class="text-white text-decoration-none">Contents</a></li>
+                <li class="list-inline-item"><a href="#Skills" class="text-white text-decoration-none">Learned</a></li>
+                <li class="list-inline-item"><a href="#projects" class="text-white text-decoration-none">Resources</a></li>
+            </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="py-5">
+      <div class="container">
+        <section id="Intro">
+              <h2 class="mb-3">Intro</h2>
+              <p class="lead mb-4">BBFramework is a custom STL data storage replacement library created by myself to understand <b><i>low-level memory management concepts</b></i>, <b><i>data storage containers</b></i> and <b><i>general low-level utilities</b></i>. </p>
+			  <p class="lead mb-2">The framework is made to be used as the main toolkit for data storage, memory management and platform API access, replacing common STL types such as vectors and maps with my own versions.</p>
+		</section>
+		<section id="Contents">
+            <h2 class="mb-3">Contents</h2>
+			  	<div class="row">
+                    <div class="col-md-4 mb-4">
+                    	<div class="card">
+                            <div class="card-body">
+							<h5 class="card-title">Backing Allocator</h5>
+							<p class="lead mb-2">Virtual Memory</p>
+							<p class="mb-2">The backing allocator allocates virtual address space using the virtual allocation API's <i>VirtualAlloc</i> (Windows) & <i>MMAP(Linux)</i> <p>
+							<p class="lead mb-2">Pros</p>
+                                <ul>
+                                  	<li class="mb-1"><b>Resizing is quick:</b> Since you can reserve (or overcommit on Linux) address space you can resize the allocation without copying over data.</li>
+									<li class="mb-1"><b>Large Allocation, low cost:</b> Reserving address space then required has little cost to it, since you theoretically have somewhat less then 16 exabytes of addres space on 64 bit systems. </li>
+									<li class="mb-1"><b>Does add more memory on RAM:</b> Address space does not automatically map to RAM, So reserving 2 gb does not immediatly commit it to your RAM.</li>
+									<li class="mb-1"><b>End of Page allocators:</b> All allocators are end of page allocators, meaning if you go over the commited memory you will crash due to memory protections.</li>
+                                </ul>
+							<p class="lead mb-2">Cons</p>
+                                <ul>
+                                  	<li class="mb-1"><b>Minimum Allocation size:</b> You cannot just reserve any size, it must be a minimum of your system allocation granularity, 4kb or 64k. </li>
+									<li class="mb-1"><b>Allocations must be a multiple of a memory page size:</b> Allocations will be around the size of a page, usually 4096 bytes.  </li>
+									<li class="mb-1"><b>Bad for 32 bit systems:</b> For 32 bit systems you only have around 2 or 3 gb of usable virtual address space. </li>
+								</ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4 mb-4">
+                          	<div class="card">
+                             	<div class="card-body">
+							  	<h5 class="card-title">Standard Allocators</h5>
+							  	<p class="mb-1">
+								This framework currently has 4 Allocators, a linear allocator, fixed linear allocator, freelist and a power-of-two freelist allocator.</p> 
+								<p class="mb-1">All these allocators get their memory from the virtual backing allocator and support resizing. </p> 
+								<p class="mb-1">All the allocators are unit tested for allocating, freeing and resizing.</p> 
+								<p class="lead mb-2">Pros</p>
+                                <ul>
+									<li class="mb-1"><b>Right Allocator for the Job:</b> With many alloctors you can take one that fits the best for the usecase.</li>
+									<li class="mb-1"><b>Cheap resizing:</b> Due to using the backing allocator, resizing is cheap as we have reserved extra adress space.</li>
+                                </ul>
+							<p class="lead mb-2">Cons</p>
+                                <ul>
+									<li class="mb-1"><b>Bad general use allocators:</b> None of these allocators are good for general use. Freelist gets fragmentation and the linear allocator can't remove individual elements.</li>
+									<li class="mb-1"><b>Bad creation design:</b> Due to it's current bad design, you cannot allocate a standard allocator using another standard allocator.</li>
+								</ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4 mb-4">
+                          <div class="card">
+                             	<div class="card-body">
+							  	<h5 class="card-title">Temporary Allocators</h5>
+							  	<p class="mb-1">
+								There are specific allocators that are meant to be temporary used. These are a ring allocator and a special linear allocator that uses Stack Memory and uses a standard allocator to allocate additional chunks if needed.</p> 
+								<p class="mb-1"><b>The special linear allocator</b> (called TemporaryAllocator in BB) uses Stack Memory and uses a standard allocator to allocate additional chunks if needed.</p> 
+								<p class="mb-1"><b>The Ring allocator</b> will keep allocating elements if it can, overwriting old memory if it does so. It has two variants, one that handles it's own virtual memory and one that uses allocates from a different allocator.</p> 
+								<p class="lead mb-2">Pros</p>
+                                <ul>
+									<li class="mb-1"><b>Quick allocation and destruction:</b> You just allocate with these allocators and destroy them when you are done.</li>
+									<li class="mb-1"><b>Quick small allocations:</b> The ring allocator is amazing for in-scope allocations such as in a function for a dynamic array.</li>
+                                </ul>
+							<p class="lead mb-2">Cons</p>
+                                <ul>
+									<li class="mb-1"><b>Ring allocator overwriting:</b> The ring allocator can overwrite old elements, now this is meant to be it's main selling point. But you can overwrite memory that you might want to use.</li>
+									<li class="mb-1"><b>No free'ing elements</b> These allocators cannot free individual allocations, you free everything or nothing.</li>
+								</ul>
+                          </div>
+                      </div>
+                  </div>
+				  <div class="row">
+                      <div class="col-md-4 mb-4">
+                          <div class="card">
+                              <img src="./Assets/imgs/.png" class="card-img-top" alt="Project 3">
+                              <div class="card-body">
+							  <h5 class="card-title">Containers - Array/Pool</h5>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4 mb-4">
+                          <div class="card">
+                              <img src="./Assets/imgs/TechDungeon.png" class="card-img-top" alt="Project 3">
+                              <div class="card-body">
+							  <h5 class="card-title">Containers - Hashmap</h5>
+                              </div>
+                          </div>
+                      </div>
+					  <div class="col-md-4 mb-4">
+                          <div class="card">
+                              <img src="./Assets/imgs/TechDungeon.png" class="card-img-top" alt="Project 3">
+                              <div class="card-body">
+							  <h5 class="card-title">Containers - Slotmap</h5>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+        </section>
+             
+ <p class="lead mb-4">This website was partially made with the thanks of our wonderful new technology, ChatGPT</p>
+</div></main></body></html>
+    
