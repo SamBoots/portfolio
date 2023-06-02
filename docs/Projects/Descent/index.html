@@ -23,11 +23,13 @@
     </header>
     <main class="py-5">
         <div class="container">
+            <img src="./assets/coolpic0.webp" alt="Descent raytraced image" style="width: 1280px; height: 720px;">
             <section id="Intro">
                 <h2 class="mb-3">Intro</h2>
                 <p class="lead mb-4"> DXX-Raytracer is a raytraced version of the game Descent 1. Using DirectX12 as it's render backend and trying to keep the original feel of Descent 1 by keeping it's main assets. </p>
-                <p class="lead mb-2"> My work on DXX-Raytracer was diving into the old codebase and transforming the game data to work with a modern graphics API and raytracing.</p>
-                <p class="lead mb-2"> Below you will see some of my work that I did on the project. </p>
+                <p class="mb-3"> The project is based on the <a href="https://github.com/CDarrow/DXX-Retro">DXX-Retro</a> repository, it maintained the old C-style codebase and used openGL for rendering.</p>
+                <p class="mb-2"> My work on DXX-Raytracer was diving into the old codebase and transforming the game data to work with a modern graphics API and raytracing.</p>
+                <p class="mb-2"> Below you will see some of my work that I did on the project. </p>
             </section>
             <section id="My work">
                 <h2 class="mb-3">My work</h2>
@@ -35,26 +37,33 @@
                     <div class="col-md-6 mb-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Cmake build tooling</h5>
-                                <p class="lead mb-2">Why cmake</p>
-                                <p class="mb-1"> We decided to work with CMake this project as I had experience with it and it's used in many open source projects. With it's easy to use scripting language it was an easy choice. </p>
-                                <p class="lead mb-2">My work</p>
-                                <p class="mb-1"> I made about 99% of the CMakeLists and presets. Here are some highlights. </p>
-                                <ul>
-                                    <li class="mb-1">Presets to build the raytracer, build and skipping the menu's or the old non-raytraced version.</li>
-                                    <li class="mb-1">Rewriting SCONS build scripts to CMake.</li>
-                                    <li class="mb-1">Handling builds for release.</li>
-                                    <li class="mb-1">shared library management for multiple executables.</li>
-                                    <li class="mb-1">Game asset management for builds.</li>
-                                </ul>
+                                <h5 class="card-title">Polygon data for Raytracer</h5>
+                                <p class="lead mb-2"><b>Converting immediate mode OpenGL to DirectX12</b> </p>
+                                <p class="mb-1">Much of the converting issues were related to the use of OpenGL immediate mode, which meant that we could not use some of the code that was already there. </p>
+                                <p class="mb-1">The <b>OpenGL version</b> would interpret a large CPU buffer representing a mesh and upload that per frame to the GPU. </p>
+                                <p class="mb-1">The <b>Directx12 version</b> however needed it to be into a GPU readable buffer beforehand, meaning converting the entire mesh to be GPU readable with all textures set. </p>
+                                <p class="lead mb-2"><b>My work</b></p>
+                                <p class="mb-1">Below is the function that reads the model buffer from the CPU and converts it to triangles for the GPU buffer. It's based of the original game's way of reading the polymodel buffer</p>
+                                <script src="https://gist.github.com/SamBoots/aa8154e76240e02efa12e375a484bc0e.js"></script>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Polygon data for Raytracer</h5>
-                                <p class="mb-1">  </p>
+                                <h5 class="card-title"> Light & Light Tooling </h5>
+                                <p class="lead mb-2"><b>Light tools using Imgui</b></p>
+                                <p class="mb-1">Reworking the rasterized descent game into a raytraced experience is more then functions. We also need to tweak some of the actual game values to make the raytracer look good.</p>
+                                <p class="mb-1">My work was related to making sure we can always tweak values from the game. Mainly the dynamic lights from weapons, muzzles and explosions, even adding new dynamic lights such as colored muzzle fire since we can do that now and it looks good.</p>
+                                <p class="mb-1">Another reason for my work is that tweaking lights is fun for the user. So why not.</p>
+                                <p class="lead mb-2"><b>My work</b></p>
+                                <p class="mb-1">Uploading the dynamic lights to the renderer and exposing the values to be changed in runtime was largely what I did.</p>
+                                <p class="mb-1">Below you see a demonstration on how changing lights for all weapon types work.</p>
+                                <video width="640" height="360" controls>
+                                    <source src="Assets/light_showcase.mp4" type="video/mp4">
+                                </video>
+                                <p class="mb-1">Below you see the interception code for dynamic lights.</p>
+                                <script src="https://gist.github.com/SamBoots/87ef0e8b6b8c2e6b9bc548ae2d964f90.js"></script>
                             </div>
                         </div>
                     </div>
@@ -64,8 +73,20 @@
                     <div class="col-md-6 mb-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title"> Light & Light Tooling </h5>
-                                <p class="mb-1">  </p>
+                                <h5 class="card-title">Cmake build tooling</h5>
+                                <p class="lead mb-2"><b>Why cmake</b></p>
+                                <p class="mb-1"> We decided to work with CMake this project as I had experience with it and it's used in many open source projects. With it's easy to use scripting language it was an easy choice. </p>
+                                <p class="mb-1"> One of the decisions we had to make was to <b>keep the openGL version working at all times.</b> This way we can see if we are missing some visual features or if things look wrong. So using cmake presets was a good way to include and not include some files with a simple press of a button in Visual Studio 2022.</p>
+                                <p class="lead mb-2"><b>My work</b></p>
+                                <p class="mb-1"> I made about 99% of the CMakeLists and presets. Here are some highlights. </p>
+                                <ul>
+                                    <li class="mb-1">Presets to build the raytracer, build and skipping the menu's or the old non-raytraced version.</li>
+                                    <li class="mb-1">Gracefully (& ungracefully) handling both OpenGL and DirectX12 versions of the game.</li>
+                                    <li class="mb-1">Rewriting SCONS build scripts to CMake.</li>
+                                    <li class="mb-1">Handling builds for release.</li>
+                                    <li class="mb-1">shared library management for multiple executables.</li>
+                                    <li class="mb-1">Game asset management for builds.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -80,6 +101,6 @@
                 </div>
             </section>
 
-                <p class="lead mb-4">This website was partially made with the thanks of our wonderful new technology, ChatGPT</p>
+            <p class="lead mb-4">This website was partially made with the thanks of our wonderful new technology, ChatGPT</p>
         </div></main></body></html>
     
