@@ -16,21 +16,51 @@
         <nav class="mt-3">
             <ul class="list-inline mb-0">
                 <li class="list-inline-item"><a href="#Intro" class="text-white text-decoration-none">Intro</a></li>
-				<li class="list-inline-item"><a href="#My work" class="text-white text-decoration-none">My work</a></li>
+                <li class="list-inline-item"><a href="#Project overview" class="text-white text-decoration-none">Project overview</a></li>
+                <li class="list-inline-item"><a href="#My work" class="text-white text-decoration-none">My work</a></li>
             </ul>
         </nav>
       </div>
     </header>
     <main class="py-5">
         <div class="container">
-            <img src="./assets/coolpic0.webp" alt="Descent raytraced image" style="width: 1280px; height: 720px;">
-            <section id="Intro">
-                <h2 class="mb-3">Intro</h2>
-                <p class="lead mb-4"> DXX-Raytracer is a raytraced version of the game Descent 1. Using DirectX12 as it's render backend and trying to keep the original feel of Descent 1 by keeping it's main assets. </p>
-                <p class="mb-3"> The project is based on the <a href="https://github.com/CDarrow/DXX-Retro">DXX-Retro</a> repository, it maintained the old C-style codebase and used openGL for rendering.</p>
-                <p class="mb-2"> My work on DXX-Raytracer was diving into the old codebase and transforming the game data to work with a modern graphics API and raytracing.</p>
-                <p class="mb-2"> Below you will see some of my work that I did on the project. </p>
-            </section>
+                <img src="./assets/coolpic0.webp" alt="Descent raytraced image" style="width: 1280px; height: 720px;">
+                <section id="Intro">
+                        <h2 class="mb-3">Intro</h2>
+                        <p class="lead mb-4"> DXX-Raytracer is a raytraced version of the game Descent 1. Using DirectX12 as it's render backend and trying to keep the original feel of Descent 1 by keeping it's main assets. </p>
+                        <p class="mb-3"> The project is based on the <a href="https://github.com/CDarrow/DXX-Retro">DXX-Retro</a> repository, it maintained the old C-style codebase and used openGL for rendering.</p>
+                        <p class="mb-2"> My work on DXX-Raytracer was diving into the old codebase and transforming the game data to work with a modern graphics API and raytracing.</p>
+                        <p class="mb-2"> Below you will see some of my work that I did on the project. </p>
+                </section>
+                <section id="Project overview">
+                    <h2 class="mb-3">Project overview</h2>
+                    <img src="./Assets/imgs/logo/C.png" width="60" height="60">
+                    <img src="./Assets/imgs/logo/cpp.svg" width="60" height="60">
+                    <img src="./Assets/imgs/logo/cmake.svg" width="60" height="60">
+                    <img src="./Assets/imgs/logo/hlsl.png" width="60" height="60">
+                    <img src="./Assets/imgs/logo/dx12.png" width="60" height="60">
+                    <img src="./Assets/imgs/logo/windows.svg" width="60" height="60">
+                    <img src="./Assets/imgs/logo/github.png" width="60" height="60">
+                    <img src="./Assets/imgs/logo/discord.svg" width="60" height="60">
+                    <img src="./Assets/imgs/logo/VS.svg" width="60" height="60">
+                    <p class="mb-4"></p>
+                    <div class="col-md-12 mb-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="lead mb-2"><b>Role: Lead & Engine Programmer</b></p>
+                                <p class="mb-1">My general work in this project was:</p>
+                                <ul>
+                                    <li class="mb-1">Reading, understanding and extending the Descent 1 source code</li>
+                                    <li class="mb-1">Converting old-style graphics development (e.g openGL immediate mode) to work with modern DirectX12</li>
+                                    <li class="mb-1">Extending and maintaining the build using Cmake</li>
+                                    <li class="mb-1">Mainly using the C programming language</li>
+                                    <li class="mb-1">Pull requests submission and reviews</li>
+                                    <li class="mb-1">Github: Team-wide version control</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             <section id="My work">
                 <h2 class="mb-3">My work</h2>
                 <div class="row">
@@ -83,9 +113,10 @@
                                     <li class="mb-1">Presets to build the raytracer, build and skipping the menu's or the old non-raytraced version.</li>
                                     <li class="mb-1">Gracefully (& ungracefully) handling both OpenGL and DirectX12 versions of the game.</li>
                                     <li class="mb-1">Rewriting SCONS build scripts to CMake.</li>
-                                    <li class="mb-1">Handling builds for release.</li>
-                                    <li class="mb-1">shared library management for multiple executables.</li>
                                     <li class="mb-1">Game asset management for builds.</li>
+                                    <li class="mb-1">Extensive debug builds for both Debug and Release</li>
+                                    <li class="mb-1">Handling builds for easy shipping</li>
+                                    <li class="mb-1">shared library management for multiple executables.</li>
                                 </ul>
                             </div>
                         </div>
@@ -93,8 +124,20 @@
                     <div class="col-md-6 mb-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title"> Miscellaneous  </h5>
-                                <p class="mb-1">  </p>
+                                <h5 class="card-title">Miscellaneous</h5>
+                                <p class="mb-1">My main work were implementing various features from Descent, with the Polygon rendering being the biggest one. However, here are some minor tasks that I wish to showcase.</p>
+
+                                <p class="lead mb-2"><b>Screen overlay color effect.</b></p>
+                                <p class="mb-1">I often did not work in shaders as my work was converting data for the renderer to use, with me and the render backend people finding out what the best way of converting it is. However, I did work on one specific post-process effect for screen overlays for when you get hit or take an item.</p>
+                                <video width="640" height="360" controls>
+                                    <source src="assets/flash_screen.mp4" type="video/mp4">
+                                </video>
+                                <p class="lead mb-2"><b>SDL 1.0 input for Imgui</b></p>
+                                <p class="mb-1">SDL 1.0 has no IMGUI examples and has a less extensive input System then 2.0+. So converting it was a pain with text and modifier keys.</p>
+                                <script src="https://gist.github.com/SamBoots/0ef538ec74d65d72fcc239d2c9f19447.js"></script>
+                                <p class="lead mb-2"><b>Freelist Descriptor allocator for DirectX12 to support unloading meshes.</b></p>
+                                <p class="mb-1">Having experience with basic memory algorithms I made a freelist allocator for a descriptor heap in DirectX12, we use this one for dynamic loading of meshes.</p>
+                                <script src="https://gist.github.com/SamBoots/12fe94eb6c541caecde2bdaf3eb54308.js"></script>
                             </div>
                         </div>
                     </div>
