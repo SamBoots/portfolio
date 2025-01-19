@@ -43,70 +43,71 @@
                     <img src="assets/imgs/logo/VS.svg" width="60" height="60">
                     <p class="mb-4"></p>
                 </section>
-            <section id="My work">
-                <h2 class="mb-3">My work</h2>
-                <div class="row">
-                    <div class="col-md-6 mb-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Rendering Features: 1</h5>
-                                <p class="lead mb-2"><b>Bloom</b> </p>
-                                <p class="mb-1">The renderer supports bloom, this is implemented with a ping-pong render target, with the final render target being the geometry pass result. </p>
-                                <p class="mb-1">With the above solution there is no need to do any manual blending. </p>
-                                <video width="600" height="360" controls>
-                                    <source src="assets/bloom_vid.mp4" type="video/mp4">
-                                </video>
+                <section id="Content">
+                    <h2 class="mb-3">Content</h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Rendering Features: 1</h5>
+                                    <p class="lead mb-2"><b>Bloom</b> </p>
+                                    <p class="mb-1">The renderer supports bloom, this is implemented with a ping-pong render target, with the final render target being the geometry pass result. </p>
+                                    <p class="mb-1">With the above solution there is no need to do any manual blending. </p>
+                                    <video width="600" height="360" controls>
+                                        <source src="assets/bloom_vid.mp4" type="video/mp4">
+                                    </video>
 
-                                <p class="lead mb-2"><b>Shadow Mapping</b> </p>
-                                <p class="mb-1">The renderer supports multiple lights and shadow maps. Each frame holds a number of textures that represent these shadow maps. </p>
-                                <p class="mb-1">The shadow maps are represented as an texture array.</p>
-                                <img src="assets/shadowmaps.PNG" alt="shadow mapping image" style="width: 600px; height: 360px;">
+                                    <p class="lead mb-2"><b>Shadow Mapping</b> </p>
+                                    <p class="mb-1">The renderer supports multiple lights and shadow maps. Each frame holds a number of textures that represent these shadow maps. </p>
+                                    <p class="mb-1">The shadow maps are represented as an texture array.</p>
+                                    <img src="assets/shadowmaps.PNG" alt="shadow mapping image" style="width: 600px; height: 360px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Engine Features: 1</h5>
+                                    <p class="lead mb-2"><b>Dynamic Shader loading</b> </p>
+                                    <p class="mb-1">The engine support hot reloading shaders, it came very useful when developing the bloom and shadow map shaders. </p>
+                                    <video width="600" height="360" controls>
+                                        <source src="assets/shaderreload.mp4" type="video/mp4">
+                                    </video>
+
+                                    <p class="lead mb-2"><b>Material change on models</b> </p>
+                                    <p class="mb-1">The engine supports changing materials on models, in this example the models waves and is transformed to a lower resolution. </p>
+                                    <video width="600" height="360" controls>
+                                        <source src="assets/materialchange.mp4" type="video/mp4">
+                                    </video>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Engine Features: 1</h5>
-                                <p class="lead mb-2"><b>Dynamic Shader loading</b> </p>
-                                <p class="mb-1">The engine support hot reloading shaders, it came very useful when developing the bloom and shadow map shaders. </p>
-                                <video width="600" height="360" controls>
-                                    <source src="assets/shaderreload.mp4" type="video/mp4">
-                                </video>
+                    <h2 class="mb-3"></h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Rendering Features: 2</h5>
+                                    <p class="lead mb-2"><b>Normal Mapping</b> </p>
+                                    <p class="mb-1">The renderer supports normal mapping for pbr </p>
+                                    <img src="assets/normalmapping.PNG" alt="normal mapping image" style="width: 600px; height: 360px;">
 
-                                <p class="lead mb-2"><b>Material change on models</b> </p>
-                                <p class="mb-1">The engine supports changing materials on models, in this example the models waves and is transformed to a lower resolution. </p>
-                                <video width="600" height="360" controls>
-                                    <source src="assets/materialchange.mp4" type="video/mp4">
-                                </video>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Engine Features: 2</h5>
+                                    <p class="lead mb-2"><b>Coming soon, exploring ECS</b> </p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </section>
                 </div>
-                <h2 class="mb-3"></h2>
-                <div class="row">
-                    <div class="col-md-6 mb-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Rendering Features: 2</h5>
-                                <p class="lead mb-2"><b>Normal Mapping</b> </p>
-                                <p class="mb-1">The renderer supports normal mapping for pbr </p>
-                                <img src="assets/normalmapping.PNG" alt="normal mapping image" style="width: 600px; height: 360px;">
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Engine Features: 2</h5>
-                                <p class="lead mb-2"><b>Coming soon, exploring ECS</b> </p>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <p class="lead mb-4">This website was partially made with the thanks of our wonderful new technology, ChatGPT</p>
         </div></main></body></html>
