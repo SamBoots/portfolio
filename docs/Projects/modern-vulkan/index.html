@@ -17,6 +17,7 @@
             <ul class="list-inline mb-0">
                 <li class="list-inline-item"><a href="#Intro" class="text-white text-decoration-none">Intro</a></li>
                 <li class="list-inline-item"><a href="#Project overview" class="text-white text-decoration-none">Project overview</a></li>
+                <li class="list-inline-item"><a href="#Engine standouts" class="text-white text-decoration-none">Engine standouts</a></li>
                 <li class="list-inline-item"><a href="#Content" class="text-white text-decoration-none">Content</a></li>
             </ul>
         </nav>
@@ -24,89 +25,117 @@
     </header>
     <main class="py-5">
         <div class="container">
-                <img src="./assets/modern-vulkan.png" alt="modern vulkan image" style="width: 1280px; height: 720px;">
-                <section id="Intro">
-                        <h2 class="mb-3">Intro</h2>
-                        <p class="lead mb-4"> A game engine using modern vulkan techniques such as descriptor buffers, dynamic rendering and pipeline state-less rendering using VK_EXT_shader_object. </p>
-                        <p class="lead mb-2"> This game engine was created after my attempt at a cross-platform DirectX12 and Vulkan renderer to discover the differences between the APIs. After learning about the new vulkan extensions I decided to create a pure vulkan renderer using the new extensions. </p>
-                        <p class="lead mb-2"> Besides the renderer, the engine has many additional elements for my learning of game engine architectures. </p>
-                        <p class="mb-2"> Many of these engine features break and work again due to constant reworks. Especially with the current ECS rework. </p>
-                </section>
-                <section id="Project overview">
-                    <h2 class="mb-3">Project overview</h2>
-                    <a href="https://github.com/SamBoots/modern-vulkan" class="btn btn-primary">View repository</a>
-                    <img src="assets/imgs/logo/cpp.svg" width="60" height="60">
-                    <img src="assets/imgs/logo/cmake.svg" width="60" height="60">
-                    <img src="assets/imgs/logo/Vulkan.jpg" width="60" height="60">
-                    <img src="assets/imgs/logo/hlsl.png" width="60" height="60">
-                    <img src="assets/imgs/logo/windows.svg" width="60" height="60">
-                    <img src="assets/imgs/logo/VS.svg" width="60" height="60">
-                    <p class="mb-4"></p>
-                </section>
-                <section id="Content">
-                    <h2 class="mb-3">Content</h2>
-                    <div class="row">
-                        <div class="col-md-6 mb-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Rendering Features: 1</h5>
-                                    <p class="lead mb-2"><b>Bloom</b> </p>
-                                    <p class="mb-1">The renderer supports bloom, this is implemented with a ping-pong render target, with the final render target being the geometry pass result. </p>
-                                    <p class="mb-1">With the above solution there is no need to do any manual blending. </p>
-                                    <video width="600" height="360" controls>
-                                        <source src="assets/bloom_vid.mp4" type="video/mp4">
-                                    </video>
+            <img src="./assets/modern-vulkan.png" alt="modern vulkan image" style="width: 1280px; height: 720px;">
+            <section id="Intro">
+                <h2 class="mb-3">Intro</h2>
+                <p class="lead mb-4"> A game engine using modern vulkan techniques such as descriptor buffers, dynamic rendering and pipeline state-less rendering using VK_EXT_shader_object. </p>
+                <p class="lead mb-2"> This game engine was created after my attempt at a cross-platform DirectX12 and Vulkan renderer to discover the differences between the APIs. After learning about the new vulkan extensions I decided to create a pure vulkan renderer using the new extensions. </p>
+                <p class="lead mb-2"> Besides the renderer, the engine has many additional elements for my learning of game engine architectures. </p>
+                <p class="mb-2"> Many of these engine features break and work again due to constant reworks. Especially with the current ECS rework. </p>
+            </section>
+            <section id="Project overview">
+                <h2 class="mb-3">Project overview</h2>
+                <a href="https://github.com/SamBoots/modern-vulkan" class="btn btn-primary">View repository</a>
+                <img src="assets/imgs/logo/cpp.svg" width="60" height="60">
+                <img src="assets/imgs/logo/cmake.svg" width="60" height="60">
+                <img src="assets/imgs/logo/Vulkan.jpg" width="60" height="60">
+                <img src="assets/imgs/logo/hlsl.png" width="60" height="60">
+                <img src="assets/imgs/logo/windows.svg" width="60" height="60">
+                <img src="assets/imgs/logo/VS.svg" width="60" height="60">
+                <p class="mb-4"></p>
+            </section>
+            <section id="Engine standouts">
+                <h2 class="mb-3">Engine standouts</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="lead mb-2"><b>Created using the <a href="https://github.com/SamBoots/BBFramework/tree/main">BBFramework</a>, my custom framework</b> </p>
+                                <p class="mb-1">My own framework to replace parts of the STL to learn how and why it works. At times adjusting it to exactly what I need. Most data containers and cross-platform code comes from here. The base bones of the project. This project has a modified version of the BBFramework and is consindered to be the most up to date. </p>
+                                <p class="lead mb-2"><b>Tight memory control</b> </p>
+                                <p class="mb-1">Most if not all memory is managed via memory arena's, which are linear allocators with debug functionality to track memory usage. There are memory interfaces for freelists, but the underlying memory comes from a linear allocator. </p>
+                                <p class="lead mb-2"><b>ECS - WIP</b> </p>
+                                <p class="mb-1">The engine's internals will be using an ECS system per scene. This will simplify the scene rendering a whole lot. </p>
 
-                                    <p class="lead mb-2"><b>Shadow Mapping</b> </p>
-                                    <p class="mb-1">The renderer supports multiple lights and shadow maps. Each frame holds a number of textures that represent these shadow maps. </p>
-                                    <p class="mb-1">The shadow maps are represented as an texture array.</p>
-                                    <img src="assets/shadowmaps.PNG" alt="shadow mapping image" style="width: 600px; height: 360px;">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Engine Features: 1</h5>
-                                    <p class="lead mb-2"><b>Dynamic Shader loading</b> </p>
-                                    <p class="mb-1">The engine support hot reloading shaders, it came very useful when developing the bloom and shadow map shaders. </p>
-                                    <video width="600" height="360" controls>
-                                        <source src="assets/shaderreload.mp4" type="video/mp4">
-                                    </video>
-
-                                    <p class="lead mb-2"><b>Material change on models</b> </p>
-                                    <p class="mb-1">The engine supports changing materials on models, in this example the models waves and is transformed to a lower resolution. </p>
-                                    <video width="600" height="360" controls>
-                                        <source src="assets/materialchange.mp4" type="video/mp4">
-                                    </video>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <h2 class="mb-3"></h2>
-                    <div class="row">
-                        <div class="col-md-6 mb-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Rendering Features: 2</h5>
-                                    <p class="lead mb-2"><b>Normal Mapping</b> </p>
-                                    <p class="mb-1">The renderer supports normal mapping for pbr </p>
-                                    <img src="assets/normalmapping.PNG" alt="normal mapping image" style="width: 600px; height: 360px;">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Engine Features: 2</h5>
-                                    <p class="lead mb-2"><b>Coming soon, exploring ECS</b> </p>
-                                </div>
+                    <div class="col-md-6 mb-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="lead mb-2"><b>Multiple scenes with async updating</b> </p>
+                                <p class="mb-1">The engine is made to support multiple scenes. With the image above you can see the the showcase rendering scene, and a game scene with a generated "dungeon" layout. These scenes can be updated async and you can have multiple of these scenes. All scenes handle their own input events and scenes have a compile-time enforced interface due to c++20 concepts. </p>
+                                <p class="lead mb-2"><b>Custom math library</b> </p>
+                                <p class="mb-1">In order to learn the underlying math I have implemented most math functions and primitives myself. Pure for learning. </p>
                             </div>
                         </div>
                     </div>
-                </section>
                 </div>
+            </section>
+            <section id="Content">
+                <h2 class="mb-3">Content</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Rendering Features: 1</h5>
+                                <p class="lead mb-2"><b>Bloom</b> </p>
+                                <p class="mb-1">The renderer supports bloom, this is implemented with a ping-pong render target, with the final render target being the geometry pass result. </p>
+                                <p class="mb-1">With the above solution there is no need to do any manual blending. </p>
+                                <video width="600" height="360" controls>
+                                    <source src="assets/bloom_vid.mp4" type="video/mp4">
+                                </video>
+
+                                <p class="lead mb-2"><b>Shadow Mapping</b> </p>
+                                <p class="mb-1">The renderer supports multiple lights and shadow maps. Each frame holds a number of textures that represent these shadow maps. </p>
+                                <p class="mb-1">The shadow maps are represented as an texture array.</p>
+                                <img src="assets/shadowmaps.PNG" alt="shadow mapping image" style="width: 600px; height: 360px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Engine Features: 1</h5>
+                                <p class="lead mb-2"><b>Dynamic Shader loading</b> </p>
+                                <p class="mb-1">The engine support hot reloading shaders, it came very useful when developing the bloom and shadow map shaders. </p>
+                                <video width="600" height="360" controls>
+                                    <source src="assets/shaderreload.mp4" type="video/mp4">
+                                </video>
+
+                                <p class="lead mb-2"><b>Material change on models</b> </p>
+                                <p class="mb-1">The engine supports changing materials on models, in this example the models waves and is transformed to a lower resolution. </p>
+                                <video width="600" height="360" controls>
+                                    <source src="assets/materialchange.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="mb-3"></h2>
+                <div class="row">
+                    <div class="col-md-6 mb-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Rendering Features: 2</h5>
+                                <p class="lead mb-2"><b>Normal Mapping</b> </p>
+                                <p class="mb-1">The renderer supports normal mapping for pbr </p>
+                                <img src="assets/normalmapping.PNG" alt="normal mapping image" style="width: 600px; height: 360px;">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Engine Features: 2</h5>
+                                <p class="lead mb-2"><b>Coming soon, exploring ECS</b> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
 
             <p class="lead mb-4">This website was partially made with the thanks of our wonderful new technology, ChatGPT</p>
