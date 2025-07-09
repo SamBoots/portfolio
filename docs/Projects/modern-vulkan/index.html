@@ -53,8 +53,8 @@
                                 <p class="mb-1">My own framework to replace parts of the STL to learn how and why it works. At times adjusting it to exactly what I need. Most data containers and cross-platform code comes from here. The base bones of the project. This project has a modified version of the BBFramework and is consindered to be the most up to date. </p>
                                 <p class="lead mb-2"><b>Tight memory control</b> </p>
                                 <p class="mb-1">Most if not all memory is managed via memory arena's, which are linear allocators with debug functionality to track memory usage. There are memory interfaces for freelists, but the underlying memory comes from a linear allocator. </p>
-                                <p class="lead mb-2"><b>ECS - WIP</b> </p>
-                                <p class="mb-1">The engine's internals will be using an ECS system per scene. This will simplify the scene rendering a whole lot. </p>
+                                <p class="lead mb-2"><b>ECS</b> </p>
+                                <p class="mb-1">The engine's internals are using an ECS system per scene/game, this makes adding new features much easier. </p>
 
                             </div>
                         </div>
@@ -66,6 +66,8 @@
                                 <p class="mb-1">The engine is made to support multiple scenes. With the image above you can see the the showcase rendering scene, and a game scene with a generated "dungeon" layout. These scenes can be updated async and you can have multiple of these scenes. All scenes handle their own input events and scenes have a compile-time enforced interface due to c++20 concepts. </p>
                                 <p class="lead mb-2"><b>Custom math library</b> </p>
                                 <p class="mb-1">In order to learn the underlying math I have implemented most math functions and primitives myself. Pure for learning. </p>
+                                <p class="lead mb-2"><b>Lua support</b> </p>
+                                <p class="mb-1">Lua acts as the high-level language for gameplay code, each scene/game has it's own Lua state that it handles. Specific C++ plugin code can be written for specific games. </p>
                             </div>
                         </div>
                     </div>
@@ -78,6 +80,12 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Rendering Features: 1</h5>
+                                <p class="lead mb-2"><b>Material change on models</b> </p>
+                                <p class="mb-1">Thanks to the VK_EXT_shader_object extension the engine supports changing materials on models in a very simple way, in this example the models waves and is transformed to a lower resolution by just switching a shader around. No pipeline recompilations needed. </p>
+                                <video width="600" height="360" controls>
+                                    <source src="assets/materialchange.mp4" type="video/mp4">
+                                </video>
+
                                 <p class="lead mb-2"><b>Bloom</b> </p>
                                 <p class="mb-1">The renderer supports bloom, this is implemented with a ping-pong render target, with the final render target being the geometry pass result. </p>
                                 <p class="mb-1">With the above solution there is no need to do any manual blending. </p>
@@ -96,16 +104,22 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Engine Features: 1</h5>
-                                <p class="lead mb-2"><b>Dynamic Shader loading</b> </p>
-                                <p class="mb-1">The engine support hot reloading shaders, it came very useful when developing the bloom and shadow map shaders. </p>
+                                <p class="lead mb-2"><b>Lua support</b> </p>
+                                <p class="mb-1">The engine support supports lua scripts and can reload them, if they get dirty due to bad calls the engine will catch it. </p>
                                 <video width="600" height="360" controls>
-                                    <source src="assets/shaderreload.mp4" type="video/mp4">
+                                    <source src="assets/lua_reload.mp4" type="video/mp4">
                                 </video>
 
-                                <p class="lead mb-2"><b>Material change on models</b> </p>
-                                <p class="mb-1">The engine supports changing materials on models, in this example the models waves and is transformed to a lower resolution. </p>
+                                <p class="lead mb-2"><b>Multiple games in the Editor</b> </p>
+                                <p class="mb-1">The editor can support multiple games, since they hold their own ECS structures they do not interfere with each other. All games use Lua as their high-level language. </p>
                                 <video width="600" height="360" controls>
-                                    <source src="assets/materialchange.mp4" type="video/mp4">
+                                    <source src="assets/lua_game.mp4" type="video/mp4">
+                                </video>
+
+                                <p class="lead mb-2"><b>Editor Gizmo</b> </p>
+                                <p class="mb-1">The editor has a gizmo where you can change the position or scale for game objects. Math needs improvement and rotation is WIP. </p>
+                                <video width="600" height="360" controls>
+                                    <source src="assets/gizmo.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -128,7 +142,10 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Engine Features: 2</h5>
-                                <p class="lead mb-2"><b>Coming soon, exploring ECS</b> </p>
+                                <p class="mb-1">The engine support hot reloading shaders, it came very useful when developing the bloom and shadow map shaders. </p>
+                                <video width="600" height="360" controls>
+                                    <source src="assets/shaderreload.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
